@@ -18,7 +18,31 @@
 // }
 
 const duck = document.querySelector(".duck");
+let imageDuck = 0;
+
+const timerID = setInterval(() => {
+  imageDuck += 1;
+
+  duck.style.backgroundImage =
+    "url(assets/images/duck/black/left/" + imageDuck + ".png)";
+
+  if (imageDuck === 2) {
+    imageDuck = -1;
+  }
+
+  duck.style.left = duck.offsetLeft - 10 + "px";
+
+  if (duck.offsetLeft < 0) {
+    clearInterval(timerID);
+  }
+}, 200);
 
 document.onclick = () => {
-  duck.style.left = duck.offsetLeft - 10 + "px";
+  // imageDuck += 1;
+  // duck.style.backgroundImage =
+  //   "url(assets/images/duck/black/left/" + imageDuck + ".png)";
+  // if (imageDuck === 2) {
+  //   imageDuck = -1;
+  // }
+  // duck.style.left = duck.offsetLeft - 10 + "px";
 };
